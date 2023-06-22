@@ -3,6 +3,8 @@ import { AuthResponseData, AuthService } from './auth.service';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable, Subject, delay } from 'rxjs';
+import { Router } from '@angular/router';
+//Router is to direct the user to specific page after login or subscribe
 
 @Component({
   selector: 'app-auth',
@@ -13,7 +15,7 @@ export class AuthComponent {
   isLoading:boolean=false
   error!:string
 
-  constructor(private authSvc:AuthService){
+  constructor(private authSvc:AuthService, private router:Router){
 
   }
 
@@ -43,6 +45,7 @@ export class AuthComponent {
       resData => {
         console.log(resData);
         this.isLoading = false;
+        this.router.navigate(['./recipes'])
       },
       errorMessage => {
         console.log(errorMessage);
