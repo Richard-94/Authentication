@@ -1,3 +1,4 @@
+import { InterInterceptor } from './auth/inter.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -52,6 +53,10 @@ import { LoadingSpinningComponent } from './shared/loading-spinning/loading-spin
     {provide:HTTP_INTERCEPTORS,
      useClass:LinkInterceptor ,
       multi:true},
+      {provide:HTTP_INTERCEPTORS,
+      useClass:InterInterceptor,
+      multi:true
+    }
   ],
   bootstrap: [AppComponent]
 })

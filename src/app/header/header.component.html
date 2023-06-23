@@ -17,7 +17,7 @@
       <ul>
 
          <li *ngIf="isAuthenticated"> <!-- visible if we are Authenticated -->
-          <a style="cursor: pointer;">Logout</a>
+          <a (click)="logout()" style="cursor: pointer;">Logout</a>
         </li>
 
         <li *ngIf="isAuthenticated">

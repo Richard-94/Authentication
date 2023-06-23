@@ -20,8 +20,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.isAuthenticated =!!user // if we dont have a user is true/false, true if we have a user / false if not
       console.log(!user);
       console.log(!!user);
-
-
     })
 
   }
@@ -32,6 +30,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onFetchData() {
     this.dataStorageService.fetchRecipes().subscribe();
+  }
+
+  logout(){
+    this.authSvc.logout()
   }
 
   ngOnDestroy(): void {
